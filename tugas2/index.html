@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Interaktif - Baedo Hadi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Menggunakan Font Awesome untuk Ikon yang lebih menarik -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+  <header class="hero-modern">
+        <!-- Panel Kaca (Glassmorphism) -->
+        <div class="hero-glass-panel">
+            <span class="hero-badge"><i class="fas fa-rocket"></i> Portofolio Interaktif</span>
+            <h1 class="hero-title">Baedo Hadi P. A.</h1>
+            <p class="hero-subtitle">Mengubah Data Menjadi Wawasan & Kode Menjadi Solusi Bisnis.</p>
+            
+            <!-- Tombol Call to Action (CTA) -->
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">Lihat Proyek</a>
+                <a href="#about" class="btn-secondary">Tentang Saya</a>
+            </div>
+        </div>
+
+        <!-- Dekorasi Ombak SVG di bagian bawah -->
+        <div class="wave-decoration">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118,130.83,124.63,203.22,112.44,244.5,105.4,285.34,81.44,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Navigasi dengan efek Sticky -->
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#about"><i class="fas fa-home"></i> Beranda</a></li>
+            <li><a href="#projects"><i class="fas fa-code"></i> Proyek</a></li>
+            <!-- PERHATIAN: Ganti YOUR_USERNAME dengan username Dicoding Anda -->
+            <li><a href="https://www.dicoding.com/users/baedo_hadigxzr/academies" target="_blank"><i class="fas fa-graduation-cap"></i> Profil Dicoding</a></li>
+        </ul>
+    </nav>
+
+    <!-- Container Flexbox Utama -->
+    <div class="container">
+        <main>
+            <article id="about" class="interactive-card">
+                <h2>Tentang Saya</h2>
+                <p>Perkenalkan, Saya Baedo Hadi Perwira Achmad saya adalah seorang mahasiswa Sistem Informasi yang memiliki minat kuat dalam pengembangan aplikasi web dan analisis data. Saya Memiliki pengalaman dalam membuat aplikasi Point of Sale terintegrasi menggunakan Python dan Flask,serta mengolah kumpulan data analitik interaktif dengan streamlit dan plotly.</p>
+            </article>
+
+            <article id="projects" class="interactive-card">
+                <h2>Proyek & Riset Terbaru</h2>
+                <div class="project-list">
+                    <div class="project-item">
+                        <div class="project-icon"><i class="fas fa-chart-pie"></i></div>
+                        <div>
+                            <h3>Analisis Ulasan Aplikasi Mobile</h3>
+                            <p>Melakukan web scraping dan Exploratory Data Analysis (EDA) menggunakan Pandas dan NumPy untuk mengekstrak wawasan dari ulasan pengguna platform e-commerce. Visualisasi data divisualisasikan melalui Streamlit di Google Colab.</p>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <div class="project-icon"><i class="fas fa-cash-register"></i></div>
+                        <div>
+                            <h3>Sistem Manajemen Transaksi (POS)</h3>
+                            <p>Membangun aplikasi kasir berbasis web menggunakan Python dan framework Flask. Sistem ini dilengkapi dengan manajemen basis data SQLite untuk mengoptimalkan pencatatan alur transaksi secara real-time.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <aside>
+            <div class="profile-card interactive-card">
+                <div class="img-container">
+                    <!-- Ganti src dengan foto asli Anda -->
+                    <img src="asset/IMG_20250909_063921_717.jpeg" alt="Foto Profil">
+                </div>
+                
+                <h3>Baedo Hadi P. A.</h3>
+                <h4>2513020033</h4>
+                <p class="location"><i class="fas fa-map-marker-alt"></i> Kediri, Jawa Timur, Indonesia</p>
+                
+
+                
+                <!-- Tag interaktif untuk keahlian -->
+                <div class="skills">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">UI/CSS</span>
+                </div>
+
+                <!-- Tombol interaktif -->
+                <a href="https://github.com/baedo23" target="_blank" class="btn-github">
+                    <i class="fab fa-github"></i> Kunjungi GitHub
+                </a>
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Baedo Hadi Perwira Achmad. Dibuat dengan <i class="fas fa-heart" style="color: #ff4757;"></i> dan CSS Flexbox.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,436 @@
+/* ==== 1. RESET & VARIABLE THEME (LIGHT & DARK) ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Sembunyikan checkbox sakelar secara visual */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Pengaturan Tema Default (Light Mode) */
+.page-container {
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-nav: rgba(255, 255, 255, 0.9);
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --border-color: #e2e8f0;
+  --badge-bg: #eff6ff;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.75;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==== 2. PURE CSS DARK MODE (DIPICU OLEH :checked) ==== */
+#theme-toggle:checked ~ .page-container {
+  --bg-page: #0b0f19;
+  --bg-card: #141c2e;
+  --bg-nav: rgba(20, 28, 46, 0.9);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --primary: #3b82f6;
+  --primary-hover: #60a5fa;
+  --border-color: #1e293b;
+  --badge-bg: #1e293b;
+  --card-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==== 3. HEADER & NAVIGASI ==== */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-nav);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+  padding: 1.1rem 0;
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Tombol Mode Gelap */
+.theme-switch {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  background: var(--bg-card);
+}
+
+.theme-switch:hover {
+  background-color: var(--badge-bg);
+  transform: rotate(15deg);
+}
+
+.icon-sun { display: none; color: #f59e0b; }
+.icon-moon { display: inline-block; }
+
+#theme-toggle:checked ~ .page-container .icon-moon { display: none; }
+#theme-toggle:checked ~ .page-container .icon-sun { display: inline-block; }
+
+/* ==== 4. KARTU ARTIKEL & GAMBAR ==== */
+.main-content {
+  margin: 2.5rem auto 4rem auto;
+  flex: 1;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.media-banner {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background-color: #0f172a;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .banner-img {
+  transform: scale(1.03);
+}
+
+.card-body {
+  padding: 2.5rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--badge-bg);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.article-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.5px;
+}
+
+/* ==== 5. AUTHOR META ==== */
+.author-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+}
+
+.author-pic {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.author-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.author-name .highlight {
+  color: var(--primary);
+}
+
+.author-date {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+}
+
+/* ==== 6. TIPOGRAFI ==== */
+.article-text p {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 1.35rem;
+  text-align: justify;
+}
+
+.article-text .lead {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* Subjudul H2 */
+.article-text h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-top: 2.25rem;
+  margin-bottom: 0.85rem;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+/* Format Tag Code Inline */
+.article-text code {
+  background-color: var(--badge-bg);
+  color: var(--primary);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  font-family: monospace;
+}
+
+/* Daftar Poin (List) */
+.article-list {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-list li {
+  margin-bottom: 0.65rem;
+  color: var(--text-main);
+  font-size: 1.05rem;
+}
+
+.article-list li strong {
+  color: var(--primary);
+}
+
+/* Kutipan (Blockquote) */
+.article-quote {
+  margin: 2rem 0;
+  padding: 1.25rem 1.75rem;
+  border-left: 4px solid var(--primary);
+  background-color: var(--badge-bg);
+  border-radius: 0 10px 10px 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ==== 7. TOMBOL LIKE & SHARE PURE CSS ==== */
+.interactive-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  align-items: center;
+}
+
+.btn-interactive {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.35rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-interactive:hover {
+  background-color: var(--border-color);
+  transform: translateY(-2px);
+}
+
+/* Status Like Tercentang (CSS Checkbox Hack) */
+.heart-filled { display: none; }
+.heart-empty { display: inline-block; }
+
+#like-toggle:checked + .like-btn {
+  background-color: #fee2e2;
+  color: #ef4444;
+  border-color: #fca5a5;
+}
+
+#theme-toggle:checked ~ .page-container #like-toggle:checked + .like-btn {
+  background-color: #450a0a;
+  border-color: #7f1d1d;
+  color: #f87171;
+}
+
+#like-toggle:checked + .like-btn .heart-empty { display: none; }
+#like-toggle:checked + .like-btn .heart-filled {
+  display: inline-block;
+  animation: heartBounce 0.35s ease;
+}
+
+@keyframes heartBounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+.like-badge {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.1rem 0.5rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+}
+
+/* Tooltip CSS pada tombol Bagikan */
+.share-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  background-color: #1e293b;
+  color: #ffffff;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.share-wrapper:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ==== 8. FOOTER ====*/
+.footer {
+  background-color: #0f172a;
+  color: #94a3b8;
+  padding: 2.5rem 0;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: auto;
+}
+
+.footer strong {
+  color: #ffffff;
+}
+
+.heart-red {
+  color: #ef4444;
+}
+
+/* ==== 9. RESPONSIVE MEDIA QUERIES ==== */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* Sembunyikan navigasi di layar kecil */
+  }
+
+  .media-banner {
+    height: 240px;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .article-title {
+    font-size: 1.75rem;
+  }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panduan Komprehensif Arsitektur, Desain, & Performa</title>
+  
+  <!-- Font Google & Icon FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- File CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Input tersembunyi untuk toggle Dark Mode via pure CSS -->
+  <input type="checkbox" id="theme-toggle" class="sr-only" />
+
+  <!-- Wrapper utama halaman -->
+  <div class="page-container">
+    
+    <!-- Navbar / Header -->
+    <header class="header">
+      <div class="container nav-content">
+        <a href="#" class="brand">Baedo Hadi</a>
+
+        <nav class="nav-menu">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#" class="nav-link">Product</a>
+          <a href="#" class="nav-link">Service</a>
+          <a href="https://www.dicoding.com/users/baedo_hadigxzr" class="nav-link">Contact</a>
+          <a href="https://github.com/baedo23" class="nav-link">About</a>
+        </nav>
+
+        <!-- Sakelar Dark Mode -->
+        <label for="theme-toggle" class="theme-switch" title="Ubah Mode Tampilan">
+          <i class="fa-solid fa-moon icon-moon"></i>
+          <i class="fa-solid fa-sun icon-sun"></i>
+        </label>
+      </div>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="container main-content">
+      <article class="card">
+        
+        <!-- Banner Gambar -->
+        <div class="media-banner">
+          <img 
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" 
+            alt="Laptop menampilkan baris kode program" 
+            class="banner-img"
+          />
+        </div>
+
+        <div class="card-body">
+          <div class="tag">Web Architecture</div>
+          
+          <!-- Judul Artikel -->
+          <h1 class="article-title">Panduan Komprehensif Arsitektur, Desain, dan Performa Web Masa Kini</h1>
+
+          <!-- Meta Penulis & Tanggal -->
+          <div class="author-meta">
+            <div class="author-pic">B</div>
+            <div class="author-info">
+              <p class="author-name">Oleh <span class="highlight">Baedo Hadi Perwira Achmad</span></p>
+              <p class="author-date">10 September 2026 • 3 Menit Baca</p>
+            </div>
+          </div>
+
+          <!-- Isi Artikel Lengkap -->
+          <div class="article-text">
+            <p class="lead">
+              Di era revolusi digital yang bergerak serba cepat, website bukan lagi sekadar brosur digital statis. Website kini menjadi representasi identitas, pusat transaksi, hingga platform interaktif utama yang menghubungkan pengguna dengan informasi secara langsung dan efisien.
+            </p>
+
+            <p>
+              Namun, di balik tampilan antarmuka yang memukau, tersimpan keputusan-keputusan arsitektur teknis yang dirancang dengan matang. Bagi seorang pengembang web modern, menghasilkan kode yang dapat dipelihara (maintainable), berkinerja tinggi (high performance), serta mudah diakses oleh semua kalangan (accessible) adalah standar keharusan, bukan pilihan opsional.
+            </p>
+
+            <h2>1. Membangun Struktur Kokoh dengan HTML Semantik</h2>
+            <p>
+              Banyak pemula sering kali terjebak dalam kecenderungan menggunakan elemen generik secara berlebihan, seperti menumpuk tag <code>&lt;div&gt;</code> tanpa makna struktural (fenomena yang sering disebut sebagai <em>"div soup"</em>). Padahal, HTML5 telah menyediakan elemen-elemen semantik yang sangat ekspresif seperti <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, dan <code>&lt;footer&gt;</code>.
+            </p>
+            <p>
+              Penggunaan HTML semantik memberikan dua keuntungan krusial:
+            </p>
+            <ul class="article-list">
+              <li><strong>Aksesibilitas (A11y):</strong> Membantu perangkat pembaca layar (screen reader) yang digunakan oleh penyandang disabilitas untuk menavigasi konten website dengan runut dan mudah dipahami.</li>
+              <li><strong>Optimalisasi Mesin Pencari (SEO):</strong> Memudahkan mesin perayap seperti Google untuk memahami struktur informasi terpenting dalam halaman Anda, yang berdampak langsung pada peringkat pencarian.</li>
+            </ul>
+
+            <h2>2. Estetika dan Skalabilitas Melalui CSS Modern</h2>
+            <p>
+              Dunia CSS telah bertransformasi pesat dalam beberapa tahun terakhir. Era teknik perataan usang yang menggunakan <em>float</em> dan manipulasi <em>clear-fix</em> telah digantikan sepenuhnya oleh dua modul tata letak yang sangat andal: <strong>CSS Flexbox</strong> untuk tata letak satu dimensi (seperti navigasi dan jajaran tombol) serta <strong>CSS Grid</strong> untuk struktur multidimensi yang kompleks.
+            </p>
+            <p>
+              Selain itu, hadirnya <em>CSS Custom Properties</em> (CSS Variables) telah merevolusi cara pengembang mengelola palet warna, tipografi, dan spasi. Seperti yang diterapkan pada halaman ini, fitur tema gelap dan terang (dark/light mode) dapat diwujudkan secara elegan hanya dengan mendefinisikan ulang variabel warna, tanpa perlu menulis ulang ratusan baris kode deklarasi gaya.
+            </p>
+
+            <blockquote class="article-quote">
+              "Desain yang baik bukan tentang seberapa banyak dekorasi yang Anda tambahkan, melainkan seberapa mulus antarmuka tersebut bekerja tanpa menghalangi fokus pengguna terhadap konten."
+            </blockquote>
+
+            <h2>3. Filosofi Desain Responsif & Pendekatan Mobile-First</h2>
+            <p>
+              Mayoritas lalu lintas web global saat ini berasal dari perangkat seluler. Oleh karena itu, pendekatan Mobile-First Design menjadi metodologi baku. Dengan merancang tata letak untuk layar kecil terlebih dahulu, Anda dipaksa memprioritaskan elemen esensial dan menyaring fitur-fitur yang tidak mendesak.
+            </p>
+            <p>
+              Setelah fondasi seluler terbentuk kokoh, pengembang dapat memanfaatkan <em>CSS Media Queries</em> untuk memperluas tata letak secara adaptif ketika halaman dibuka pada layar komputer desktop maupun tablet, memastikan kesinambungan visual di segala skenario penggunaan.
+            </p>
+
+            <h2>4. Mengoptimalkan Performa & Kecepatan Muat</h2>
+            <p>
+              Kecepatan adalah salah satu faktor terbesar yang menentukan retensi pengunjung. Studi membuktikan bahwa keterlambatan sepersekian detik saja pada waktu pemuatan halaman dapat memicu lonjakan angka pentalan (bounce rate). Berikut adalah beberapa strategi utama optimasi performa:
+            </p>
+            <ul class="article-list">
+              <li><strong>Kompresi & Format Gambar Modern:</strong> Selalu optimalkan resolusi media visual dan gunakan format generasi terbaru seperti WebP atau AVIF untuk menghemat kuota pengguna.</li>
+              <li><strong>Minifikasi & Reduksi Beban:</strong> Kurangi ketergantungan pada pustaka (library) eksternal yang terlalu berat jika fungsinya dapat diselesaikan menggunakan CSS murni.</li>
+              <li><strong>Tipografi yang Terukur:</strong> Gunakan font web dengan subset karakter yang benar-benar dibutuhkan agar tidak membebani proses render awal peramban.</li>
+            </ul>
+
+            <h2>Kesimpulan Konsistensi dalam Bereksplorasi</h2>
+            <p>
+              Menjadi pengembang web yang kompeten adalah perjalanan yang berkelanjutan. Teknologi, spesifikasi browser, dan tren antarmuka akan terus berganti, tetapi fondasi logika yang kuat, kepedulian terhadap kenyamanan pengguna, dan kemauan untuk terus bereksperimen adalah aset terbaik yang akan selalu bertahan. Mulailah dari proyek-proyek sederhana, pahami setiap baris kode yang Anda tulis, dan teruslah berkarya.
+            </p>
+          </div>
+
+          <!-- Tombol Interaksi Pure CSS -->
+          <div class="interactive-actions">
+            <!-- Tombol Like -->
+            <input type="checkbox" id="like-toggle" class="sr-only" />
+            <label for="like-toggle" class="btn-interactive like-btn">
+              <i class="fa-regular fa-heart heart-empty"></i>
+              <i class="fa-solid fa-heart heart-filled"></i>
+              <span class="like-label">Suka</span>
+              <span class="like-badge">142</span>
+            </label>
+
+            <!-- Tombol Share -->
+            <div class="share-wrapper">
+              <a href="#" class="btn-interactive share-btn">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>Bagikan</span>
+              </a>
+              <span class="tooltip">Bagikan artikel ini</span>
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>Created with <i class="fa-solid fa-heart heart-red"></i> <strong>Baedo Hadi Perwira Achmad 2026</strong></p>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

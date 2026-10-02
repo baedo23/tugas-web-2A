@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baedo Hadi Perwira Achmad - Profil & Portofolio</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-soft: #eef2ff;
+            --secondary-color: #06b6d4;
+            --dark-color: #0f172a;
+            --slate-body: #475569;
+            --light-bg: #f8fafc;
+            --card-border: #e2e8f0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--slate-body);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.65rem 1.6rem;
+            font-weight: 500;
+            border-radius: 50rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover, .btn-primary:focus {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -8px rgba(79, 70, 229, 0.5);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            border-radius: 50rem;
+            padding: 0.65rem 1.6rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .navbar {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.92);
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #334155;
+            padding: 0.5rem 1rem !important;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .badge-status {
+            background-color: rgba(16, 185, 129, 0.12);
+            color: #059669;
+            font-weight: 600;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            border-radius: 50rem;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .hero-section {
+            padding-top: 7rem;
+            padding-bottom: 5rem;
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.08), transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(6, 182, 212, 0.06), transparent 40%);
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .avatar-blob {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 105%;
+            height: 105%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            filter: blur(25px);
+            opacity: 0.4;
+            z-index: 0;
+            animation: morphing 10s ease-in-out infinite alternate;
+        }
+
+        @keyframes morphing {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 70% 30% 40% 60% / 60% 40% 60% 40%; }
+            100% { border-radius: 40% 60% 60% 40% / 40% 70% 30% 60%; }
+        }
+
+        .hero-img {
+            position: relative;
+            z-index: 1;
+            border-radius: 2rem;
+            border: 5px solid #ffffff;
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+            max-width: 360px;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .section-tag {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            background: var(--primary-soft);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50rem;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .custom-card {
+            border: 1px solid var(--card-border);
+            border-radius: 1.25rem;
+            background: #ffffff;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .custom-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            border-color: #cbd5e1;
+        }
+
+        .progress {
+            height: 8px;
+            background-color: #f1f5f9;
+            border-radius: 50rem;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50rem;
+        }
+
+        .filter-btn {
+            border: none;
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        .portfolio-card {
+            overflow: hidden;
+            border-radius: 1.25rem;
+            border: 1px solid var(--card-border);
+            background: #ffffff;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.07);
+        }
+
+        .portfolio-thumb-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
+        }
+
+        .portfolio-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-card:hover .portfolio-thumb {
+            transform: scale(1.05);
+        }
+
+        .tech-pill {
+            font-size: 0.75rem;
+            background: #f8fafc;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            border-radius: 50rem;
+            padding: 0.25rem 0.65rem;
+            font-weight: 500;
+        }
+
+        .contact-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: var(--primary-soft);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(79, 70, 229, 0.15);
+        }
+
+        .form-control, .form-select {
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border-color: #cbd5e1;
+        }
+
+        .social-link {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: #f1f5f9;
+            color: #334155;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNavbar" data-bs-offset="80">
+
+    <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 text-dark d-flex align-items-center gap-2" href="#home">
+                <span class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-3 p-1 px-2 fs-5">
+                    <i class="bi bi-code-slash"></i>
+                </span>
+                <span>Baedo<span class="text-primary">.Profile</span></span>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary btn-sm px-4" href="#contact">Hire Me</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section min-vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <div class="mb-3">
+                        <span class="badge-status">
+                            <span class="pulse-dot"></span>
+                            Tersedia untuk Magang & Peluang Proyek
+                        </span>
+                    </div>
+                    <h1 class="display-4 fw-extrabold mb-3">
+                        Halo, Saya <span class="text-primary">Baedo Hadi Perwira A.</span>
+                    </h1>
+                    <h2 class="h4 text-secondary fw-semibold mb-4 text-primary">
+                        Sistem Informasi & Bisnis Digital
+                    </h2>
+                    <p class="lead text-muted mb-4 pe-lg-4" style="line-height: 1.75;">
+                        Fokus pada pengembangan aplikasi web terstruktur dengan Python Flask, manipulasi dan analisis data, serta perancangan sistem informasi bisnis yang efisien.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start mb-4">
+                        <a href="#portfolio" class="btn btn-primary d-inline-flex align-items-center gap-2">
+                            Lihat Portofolio <i class="bi bi-arrow-right"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-outline-primary d-inline-flex align-items-center gap-2">
+                            Hubungi Saya <i class="bi bi-chat-dots"></i>
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center gap-4 justify-content-center justify-content-lg-start pt-2">
+                        <div>
+                            <span class="fw-bold fs-4 text-dark d-block">Python</span>
+                            <small class="text-muted">Tech Stack Utama</small>
+                        </div>
+                        <div class="border-start ps-4">
+                            <span class="fw-bold fs-4 text-dark d-block">Kediri</span>
+                            <small class="text-muted">Domisili Jatim</small>
+                        </div>
+                        <div class="border-start ps-4">
+                            <span class="fw-bold fs-4 text-dark d-block">100%</span>
+                            <small class="text-muted">Dedikasi Solusi</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <div class="avatar-wrapper">
+                        <div class="avatar-blob"></div>
+                        <img src="img/IMG_20250909_063921_717.webp" 
+                             alt="Baedo Hadi Perwira Achmad" 
+                             class="hero-img img-fluid"
+                             onerror="this.src='https://placehold.co/400x480/4f46e5/ffffff?text=Baedo+Hadi'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="section-tag">Tentang Diri</span>
+                <h2 class="display-6 fw-bold">Keahlian & Profil Saya</h2>
+                <p class="text-muted col-md-6 mx-auto">Dedikasi dalam memadukan perancangan sistem informasi modern, logika komputasi, dan efisiensi model bisnis.</p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-lg-6">
+                    <div class="custom-card p-4 p-md-5 h-100">
+                        <h4 class="fw-bold mb-3">Siapa Saya Sebenarnya?</h4>
+                        <p class="text-muted mb-3" style="line-height: 1.8;">
+                            Saya adalah mahasiswa aktif di bidang <strong>Sistem Informasi & Bisnis Digital</strong> yang bertempat tinggal di Kediri, Jawa Timur. Alumni dari <strong>SMAN 5 Taruna Brawijaya Jawa Timur</strong> dengan peminatan MIPA.
+                        </p>
+                        <p class="text-muted mb-4" style="line-height: 1.8;">
+                            Saya memiliki antusiasme tinggi pada rekayasa backend aplikasi web menggunakan Python dan Flask, manajemen basis data relasional SQLite, data scraping, analisis sentimen ulasan mobile, serta perancangan model bisnis e-commerce terintegrasi.
+                        </p>
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span class="text-dark fw-medium">Web & Backend (Flask)</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span class="text-dark fw-medium">Pengolahan Data (Pandas)</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span class="text-dark fw-medium">Perancangan Basis Data</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check-circle-fill text-success"></i>
+                                    <span class="text-dark fw-medium">E-Commerce Operasional</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="custom-card p-4 p-md-5 h-100">
+                        <h4 class="fw-bold mb-4">Kemampuan Teknis</h4>
+                        
+                        <!-- Skill item -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold text-dark">Python & Flask Web Framework</span>
+                                <span class="fw-bold text-primary">85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill item -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold text-dark">Data Analysis (Pandas, NumPy, EDA)</span>
+                                <span class="fw-bold text-primary">80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill item -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold text-dark">Database Relasional (SQLite / SQL)</span>
+                                <span class="fw-bold text-primary">80%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill item -->
+                        <div class="mb-2">
+                            <div class="d-flex justify-content-between mb-1">
+                                <span class="fw-semibold text-dark">Frontend Web (HTML5, CSS3, Bootstrap 5)</span>
+                                <span class="fw-bold text-primary">85%</span>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-4">
+                <span class="section-tag">Portofolio Pilihan</span>
+                <h2 class="display-6 fw-bold">Karya & Proyek Terkini</h2>
+                <p class="text-muted col-md-6 mx-auto">Berikut adalah beberapa implementasi sistem, pengolahan data analitik, dan rancangan model bisnis yang telah saya kembangkan.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
+                <button class="filter-btn active" data-filter="all">Semua Proyek</button>
+                <button class="filter-btn" data-filter="webapp">Web App & POS</button>
+                <button class="filter-btn" data-filter="data">Data Science</button>
+                <button class="filter-btn" data-filter="business">Bisnis & Cloud</button>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="row g-4" id="portfolioContainer">
+                <!-- Item 1 -->
+                <div class="col-md-6 col-lg-4 portfolio-item" data-category="webapp">
+                    <div class="portfolio-card h-100 d-flex flex-column">
+                        <div class="portfolio-thumb-wrapper">
+                            <img src="img/POS APP.png" 
+                                 class="portfolio-thumb" 
+                                 alt="Aplikasi Web POS Kasir"
+                                 onerror="this.src='https://placehold.co/600x400/4f46e5/ffffff?text=POS+Cashier+App'">
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <div class="d-flex gap-2 flex-wrap mb-2">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Flask</span>
+                                <span class="tech-pill">SQLite</span>
+                            </div>
+                            <h5 class="fw-bold mb-2">Aplikasi Kasir POS Web</h5>
+                            <p class="text-muted small flex-grow-1">Aplikasi point-of-sale berbasis web dengan manajemen katalog barang, riwayat transaksi kasir, dan perhitungan otomatis.</p>
+                            <div class="pt-3 border-top mt-auto d-flex justify-content-between align-items-center">
+                                <button class="btn btn-sm btn-outline-primary px-3" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="openDetailModal('Aplikasi Kasir POS Web', 'Aplikasi kasir berbasis web yang dibangun menggunakan Flask framework dan SQLite. Menyediakan manajemen stok barang, kalkulasi checkout belanjaan pelanggan, serta rekapitulasi data transaksi harian.', ['Python', 'Flask', 'SQLite', 'Bootstrap 5'], 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=900&q=80')">Detail</button>
+                                <a href="https://github.com/baedo23" target="_blank" class="text-muted hover-primary small text-decoration-none"><i class="bi bi-github me-1"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="col-md-6 col-lg-4 portfolio-item" data-category="data">
+                    <div class="portfolio-card h-100 d-flex flex-column">
+                        <div class="portfolio-thumb-wrapper">
+                            <img src="img/app-analytics.webp" 
+                                 class="portfolio-thumb" 
+                                 alt="Analisis Ulasan Aplikasi Mobile"
+                                 onerror="this.src='https://placehold.co/600x400/4f46e5/ffffff?text=Mobile+App+Reviews+EDA'">
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <div class="d-flex gap-2 flex-wrap mb-2">
+                                <span class="tech-pill">Pandas</span>
+                                <span class="tech-pill">Streamlit</span>
+                                <span class="tech-pill">Plotly</span>
+                            </div>
+                            <h5 class="fw-bold mb-2">Analisis Ulasan Aplikasi Mobile</h5>
+                            <p class="text-muted small flex-grow-1">Scraping ulasan pengguna aplikasi Tokopedia & DANA, pembersihan teks, analisis sentimen, dan dashboard visual.</p>
+                            <div class="pt-3 border-top mt-auto d-flex justify-content-between align-items-center">
+                                <button class="btn btn-sm btn-outline-primary px-3" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="openDetailModal('Analisis Ulasan Aplikasi Mobile', 'Proyek pengolahan data eksploratif (EDA) ulasan pengguna Tokopedia dan DANA di Google Colab. Meliputi web data scraping, text preprocessing menggunakan Pandas, dan dashboard interaktif Streamlit.', ['Python', 'Pandas', 'Streamlit', 'Plotly', 'Google Colab'], 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80')">Detail</button>
+                                <a href="https://github.com/baedo23" target="_blank" class="text-muted hover-primary small text-decoration-none"><i class="bi bi-github me-1"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="col-md-6 col-lg-4 portfolio-item" data-category="business">
+                    <div class="portfolio-card h-100 d-flex flex-column">
+                        <div class="portfolio-thumb-wrapper">
+                            <img src="img/Bumi.webp" 
+                                 class="portfolio-thumb" 
+                                 alt="EduCloud Architecture"
+                                 onerror="this.src='https://placehold.co/600x400/4f46e5/ffffff?text=EduCloud+Platform'">
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1">
+                            <div class="d-flex gap-2 flex-wrap mb-2">
+                                <span class="tech-pill">BMC</span>
+                                <span class="tech-pill">Cloud Platform</span>
+                                <span class="tech-pill">Sistem Informasi</span>
+                            </div>
+                            <h5 class="fw-bold mb-2">Arsitektur & BMC EduCloud</h5>
+                            <p class="text-muted small flex-grow-1">Perancangan Business Model Canvas dan framework arsitektur smart education cloud platform untuk sistem edukasi.</p>
+                            <div class="pt-3 border-top mt-auto d-flex justify-content-between align-items-center">
+                                <button class="btn btn-sm btn-outline-primary px-3" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="openDetailModal('Arsitektur & BMC EduCloud', 'Pengembangan Business Model Canvas terstruktur dan desain kerangka integrasi sistem cerdas berbasis komputasi awan (EduCloud) guna mengoptimalkan manajemen institusi pendidikan.', ['Business Model Canvas', 'System Analysis', 'Cloud Computing'], 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80')">Detail</button>
+                                <a href="#contact" class="text-muted hover-primary small text-decoration-none"><i class="bi bi-chat-dots me-1"></i> Diskusi</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="section-tag">Kontak</span>
+                <h2 class="display-6 fw-bold">Mari Berkolaborasi</h2>
+                <p class="text-muted col-md-6 mx-auto">Tertarik dengan keahlian saya atau memiliki peluang kerja sama dalam proyek web dan data? Kirimkan pesan Anda.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Info Kolom Kiri -->
+                <div class="col-lg-5">
+                    <div class="custom-card p-4 p-md-5 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <h4 class="fw-bold mb-3">Informasi Kontak</h4>
+                            <p class="text-muted mb-4">Saya terbuka untuk kesempatan magang, proyek lepas (freelance), maupun diskusi teknologi.</p>
+
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="contact-icon-box">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                                <div>
+                                    <small class="text-muted d-block">Kirim Email</small>
+                                    <span class="fw-semibold text-dark">baedohadi@gmail.com</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="contact-icon-box">
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <small class="text-muted d-block">WhatsApp / Nomor HP</small>
+                                    <span class="fw-semibold text-dark">0852-1008-4888</span>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3 mb-4">
+                                <div class="contact-icon-box">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <div>
+                                    <small class="text-muted d-block">Domisili</small>
+                                    <span class="fw-semibold text-dark">Mojoroto, Kota Kediri, Jawa Timur</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-dark fw-semibold d-block mb-3">Temukan saya di platform lain:</span>
+                            <div class="d-flex gap-2">
+                                <a href="https://github.com/baedo23" target="_blank" class="social-link" title="GitHub"><i class="bi bi-github"></i></a>
+                                <a href="mailto:baedohadi@gmail.com" class="social-link" title="Email"><i class="bi bi-envelope-fill"></i></a>
+                                <a href="https://wa.me/6285210084888" target="_blank" class="social-link" title="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulir Kolom Kanan -->
+                <div class="col-lg-7">
+                    <div class="custom-card p-4 p-md-5">
+                        <div id="contactAlert" class="alert alert-success d-none align-items-center gap-2 mb-4" role="alert">
+                            <i class="bi bi-check-circle-fill fs-5"></i>
+                            <div>
+                                Terima kasih! Pesan Anda telah terkirim. Saya akan segera menghubungi Anda kembali.
+                            </div>
+                        </div>
+
+                        <form id="contactForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="nameInput" class="form-label fw-semibold text-dark">Nama Lengkap</label>
+                                    <input type="text" class="form-control" id="nameInput" placeholder="Misal: Budi Santoso" required>
+                                    <div class="invalid-feedback">Mohon masukkan nama Anda.</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="emailInput" class="form-label fw-semibold text-dark">Alamat Email</label>
+                                    <input type="email" class="form-control" id="emailInput" placeholder="nama@email.com" required>
+                                    <div class="invalid-feedback">Mohon masukkan email yang valid.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="subjectInput" class="form-label fw-semibold text-dark">Subjek Pesan</label>
+                                    <input type="text" class="form-control" id="subjectInput" placeholder="Tawaran Proyek Web / Kolaborasi" required>
+                                    <div class="invalid-feedback">Mohon isi subjek pesan.</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="messageInput" class="form-label fw-semibold text-dark">Pesan Anda</label>
+                                    <textarea class="form-control" id="messageInput" rows="5" placeholder="Tuliskan detail kebutuhan atau pertanyaan Anda di sini..." required></textarea>
+                                    <div class="invalid-feedback">Mohon tuliskan pesan Anda.</div>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 d-flex align-items-center justify-content-center gap-2">
+                                        <i class="bi bi-send-fill"></i> Kirim Pesan Sekarang
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 border-top bg-white">
+        <div class="container">
+            <div class="row align-items-center gy-3">
+                <div class="col-md-6 text-center text-md-start">
+                    <span class="text-muted small">© 2026 Baedo Hadi Perwira Achmad. Seluruh hak cipta dilindungi.</span>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0 small">
+                        <li class="list-inline-item"><a href="#home" class="text-muted text-decoration-none">Beranda</a></li>
+                        <li class="list-inline-item mx-2 text-muted">•</li>
+                        <li class="list-inline-item"><a href="#about" class="text-muted text-decoration-none">Tentang</a></li>
+                        <li class="list-inline-item mx-2 text-muted">•</li>
+                        <li class="list-inline-item"><a href="#portfolio" class="text-muted text-decoration-none">Portofolio</a></li>
+                        <li class="list-inline-item mx-2 text-muted">•</li>
+                        <li class="list-inline-item"><a href="#contact" class="text-muted text-decoration-none">Kontak</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Popup Detail Portofolio -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-1">
+                    <img id="modalImg" src="" alt="Project Image" class="img-fluid rounded-3 mb-4 w-100" style="max-height: 320px; object-fit: cover;">
+                    <h4 class="fw-bold text-dark" id="modalTitle">Judul Proyek</h4>
+                    <p class="text-muted" id="modalDesc">Deskripsi proyek.</p>
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-dark mb-2">Teknologi yang Digunakan:</h6>
+                        <div id="modalBadges" class="d-flex flex-wrap gap-2"></div>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <a href="https://github.com/baedo23" target="_blank" class="btn btn-primary btn-sm px-4"><i class="bi bi-github me-1"></i> Buka Repositori GitHub</a>
+                        <button type="button" class="btn btn-outline-secondary btn-sm px-4" data-bs-dismiss="modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Modal Detail Handler
+        function openDetailModal(title, description, tags, imgUrl) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDesc').textContent = description;
+            document.getElementById('modalImg').src = imgUrl;
+
+            const badgesContainer = document.getElementById('modalBadges');
+            badgesContainer.innerHTML = '';
+            tags.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'tech-pill bg-light text-dark';
+                span.textContent = tag;
+                badgesContainer.appendChild(span);
+            });
+        }
+
+        // Portfolio Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+                portfolioItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Contact Form Submission Handler (Mock without reload)
+        const contactForm = document.getElementById('contactForm');
+        const contactAlert = document.getElementById('contactAlert');
+
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            if (contactForm.checkValidity()) {
+                contactAlert.classList.remove('d-none');
+                contactAlert.classList.add('d-flex');
+                contactForm.reset();
+                contactForm.classList.remove('was-validated');
+
+                setTimeout(() => {
+                    contactAlert.classList.add('d-none');
+                    contactAlert.classList.remove('d-flex');
+                }, 5000);
+            } else {
+                contactForm.classList.add('was-validated');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas Praktikum Kasir</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        // 1. Input nama barang
+        let namaBarang = prompt("Masukkan nama barang (contoh: sepatu):");
+        
+        // 2. Input harga barang
+        let hargaBarang = parseInt(prompt("Masukkan Harga barang:"));
+        
+        // 3. Input jumlah beli (qty)[cite: 1]
+        let qty = parseInt(prompt("Masukkan jumlah beli (qty):"));
+
+        // Menghitung total belanja awal
+        let total = hargaBarang * qty;
+        let diskon = 0;
+
+        // 4. Jika pembelian lebih dari 50.000 dapat diskon 10% dari total[cite: 1]
+        if (total > 50000) {
+            diskon = total * 0.10;
+        }
+
+        // Menghitung total pembayaran setelah diskon
+        let pembayaran = total - diskon;
+
+        // 5. Tampilan Struk belanja menggunakan tag <pre> agar format ASCII/spasi terjaga
+        document.write("<pre>");
+        document.write("+++++++++++++++++++++++++++++++++++++<br>");
+        document.write("+                                   +<br>");
+        document.write("+ nama    Harga      qty  total     +<br>");
+        document.write("+ " + namaBarang + "<br>");             
+        document.write("+         " + hargaBarang + "      " + qty + "    " + total + "<br>");
+        document.write("+                                   +<br>");
+        document.write("+ total belanja           " + total + "<br>");
+        document.write("+ diskon                  " + diskon + "<br>");
+        document.write("+ pembayaran              " + pembayaran + "<br>");
+        document.write("+                                   +<br>");
+        document.write("+++++++++++++++++++++++++++++++++++++<br>");
+        document.write("</pre>");
+    </script>
+
+</body>
+</html>
